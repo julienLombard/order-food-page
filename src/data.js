@@ -2,6 +2,10 @@ export const data = [
   {
     categories: [
       {
+        name: 'All',
+        image: '/images/burgers.jpg',
+      },
+      {
         name: 'Burgers',
         image: '/images/burgers.jpg',
       },

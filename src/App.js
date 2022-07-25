@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { data } from './data';
 import './App.css';
 
 function App() {
   const [{ categories }] = data;
   const [{ products }] = data;
+  const [active, setActive] = useState('');
+  console.log(active);
 
   return (
     <div className="App">
@@ -15,7 +17,14 @@ function App() {
         <div className="categories-div">
           {categories
             ? categories.map((category) => (
-                <div className="category-div" key={category.name}>
+                <div
+                  className={
+                    active === category.name
+                      ? 'category-div-active'
+                      : 'category-div'
+                  }
+                  key={category.name}
+                >
                   <img src={category.image} alt={category.name} />
                   <h2>{category.name ? category.name : 'categorie'}</h2>
                 </div>
@@ -30,6 +39,7 @@ function App() {
                 <div className="product-div" key={product.name}>
                   <img src={product.image} alt={product.name} />
                   <h3>{product.name ? product.name : 'produit'}</h3>
+                  <p>{product.price} €</p>
                 </div>
               ))
             : null}

@@ -48,7 +48,16 @@
   box-shadow: 0px 0px 8px 1px #FF7373;
 }
 
-.category-div h2 {
+.category-div-active {
+  margin: 0 1rem;
+  padding: 1rem;
+
+  border-radius: 12%;
+  -webkit-box-shadow: 0px 0px 8px 1px #FF0000; 
+  box-shadow: 0px 0px 8px 1px #FF0000;
+}
+
+.category-div h2,.category-div-active h2 {
   margin: 0;
 }
 
@@ -58,7 +67,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
+
   margin : 2em 0;
 }
 
@@ -76,6 +85,13 @@
 
 .product-div h3 {
   margin: 0;
+}
+
+.product-div p {
+  margin: .25em 0;
+
+  font-weight: bold;
+  color: #efbd27;
 }
 
 @keyframes App-logo-spin {
