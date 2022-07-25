@@ -5,8 +5,11 @@ import './App.css';
 function App() {
   const [{ categories }] = data;
   const [{ products }] = data;
-  const [active, setActive] = useState('');
-  console.log(active);
+  const [selected, setSelected] = useState('');
+
+  const categoriesHandler = (name) => {
+    setSelected(name);
+  };
 
   return (
     <div className="App">
@@ -19,11 +22,12 @@ function App() {
             ? categories.map((category) => (
                 <div
                   className={
-                    active === category.name
+                    selected === category.name
                       ? 'category-div-active'
                       : 'category-div'
                   }
                   key={category.name}
+                  onClick={() => categoriesHandler(category.name)}
                 >
                   <img src={category.image} alt={category.name} />
                   <h2>{category.name ? category.name : 'categorie'}</h2>
