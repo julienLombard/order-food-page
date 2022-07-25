@@ -13,19 +13,69 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.App-main {
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+/* Category */
+
+.categories-div {
+  display: flex;
+}
+
+.category-div {
+  margin: 0 1rem;
+  padding: 1rem;
+
+  border-radius: 12%;
+  -webkit-box-shadow: 0px 0px 8px 1px #C1C1C1; 
+  box-shadow: 0px 0px 8px 1px #C1C1C1;
+}
+
+.category-div:hover {
+  -webkit-box-shadow: 0px 0px 8px 1px #FF7373; 
+  box-shadow: 0px 0px 8px 1px #FF7373;
+}
+
+.category-div h2 {
+  margin: 0;
+}
+
+/* Products */
+
+.products-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  margin : 2em 0;
+}
+
+.product-div {
+  margin: 0 1rem;
+  padding: 1rem;
+
+  border-radius: 12%;
+}
+
+.product-div:hover {
+  -webkit-box-shadow: 0px 0px 8px 1px #FF7373; 
+  box-shadow: 0px 0px 8px 1px #FF7373;
+}
+
+.product-div h3 {
+  margin: 0;
 }
 
 @keyframes App-logo-spin {

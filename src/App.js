@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import React from 'react';
+import { data } from './data';
 import './App.css';
 
 function App() {
+  const [{ categories }] = data;
+  const [{ products }] = data;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main className="App-main">
+        <h1>Menu</h1>
+
+        {/* Categories */}
+        <div className="categories-div">
+          {categories
+            ? categories.map((category) => (
+                <div className="category-div" key={category.name}>
+                  <img src={category.image} alt={category.name} />
+                  <h2>{category.name ? category.name : 'categorie'}</h2>
+                </div>
+              ))
+            : null}
+        </div>
+
+        {/* Products */}
+        <div className="products-div">
+          {products
+            ? products.map((product) => (
+                <div className="product-div" key={product.name}>
+                  <img src={product.image} alt={product.name} />
+                  <h3>{product.name ? product.name : 'produit'}</h3>
+                </div>
+              ))
+            : null}
+        </div>
+      </main>
     </div>
   );
 }
