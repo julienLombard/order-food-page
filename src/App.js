@@ -5,10 +5,21 @@ import './App.css';
 function App() {
   const [{ categories }] = data;
   const [{ products }] = data;
-  const [selected, setSelected] = useState('');
+  const [active, setActive] = useState('');
+  const [selectedProducts, setSelectedProducts] = useState(products);
 
-  const categoriesHandler = (name) => {
-    setSelected(name);
+  const categoriesHandler = (category) => {
+    setActive(category);
+  };
+
+  const selectedProductsHandler = (category) => {
+    setSelectedProducts(
+      category !== 'All'
+        ? products.filter((product) => product.category === category)
+        : products
+    );
+
+    categoriesHandler(category);
   };
 
   return (
@@ -22,12 +33,12 @@ function App() {
             ? categories.map((category) => (
                 <div
                   className={
-                    selected === category.name
+                    active === category.name
                       ? 'category-div-active'
                       : 'category-div'
                   }
                   key={category.name}
-                  onClick={() => categoriesHandler(category.name)}
+                  onClick={() => selectedProductsHandler(category.name)}
                 >
                   <img src={category.image} alt={category.name} />
                   <h2>{category.name ? category.name : 'categorie'}</h2>
@@ -38,8 +49,8 @@ function App() {
 
         {/* Products */}
         <div className="products-div">
-          {products
-            ? products.map((product) => (
+          {selectedProducts
+            ? selectedProducts.map((product) => (
                 <div className="product-div" key={product.name}>
                   <img src={product.image} alt={product.name} />
                   <h3>{product.name ? product.name : 'produit'}</h3>
