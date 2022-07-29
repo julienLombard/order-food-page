@@ -29,7 +29,7 @@ export const data = [
       },
       {
         category: 'Boissons',
-        name: 'Vanill Shake',
+        name: 'Vanilla Shake',
         price: 1.5,
         calorie: 360,
         image: '/images/t-mcdonalds-Vanilla-McCafe-Shake-Medium.jpg',
